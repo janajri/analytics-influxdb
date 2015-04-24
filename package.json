@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/janajri/abacus-influxdb"
+    "url": "https://github.com/janajri/analytics-influxdb"
   },
   "keywords": [
     "influxdb",
@@ -18,9 +18,9 @@
   "author": "Yousef Janajri",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/janajri/abacus-influxdb/issues"
+    "url": "https://github.com/janajri/analytics-influxdb/issues"
   },
-  "homepage": "https://github.com/janajri/abacus-influxdb",
+  "homepage": "https://github.com/janajri/analytics-influxdb",
   "devDependencies": {
     "assert": "^1.3.0",
     "http-proxy": "^1.11.1",
