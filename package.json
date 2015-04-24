@@ -20,5 +20,17 @@
   "bugs": {
     "url": "https://github.com/janajri/abacus-influxdb/issues"
   },
-  "homepage": "https://github.com/janajri/abacus-influxdb"
+  "homepage": "https://github.com/janajri/abacus-influxdb",
+  "devDependencies": {
+    "assert": "^1.3.0",
+    "http-proxy": "^1.11.1",
+    "mocha": "^2.2.4"
+  },
+  "dependencies": {
+    "clone": "^1.0.2",
+    "debug": "^2.1.3",
+    "flatten": "0.0.1",
+    "superagent": "^1.2.0",
+    "superagent-retry": "^0.5.1"
+  }
 }

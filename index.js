@@ -1,4 +1,4 @@
-var debug = require('debug')('analytics:init');
+var debug = require('debug')('abacus:init');
 var noop = function(){};
 var host = require('os').hostname();
 var clone = require('clone');
@@ -9,11 +9,11 @@ require('superagent-retry')(request);
 
 global.setImmediate = global.setImmediate || process.nextTick.bind(process);
 
-module.exports = Analytics;
+module.exports = Abacus;
 
 
 /**
- * Initialize a new `Analytics` with user, pass and and
+ * Initialize a new `Abacus` with user, pass and and
  * optional dictionary of `options` including host.
  *   Note: all messages being tracked will flatten all nested fields i.e. { top: { nested: 'hi' } } => { "top.nested" : "hi }
  *
@@ -23,36 +23,37 @@ module.exports = Analytics;
  *   @property {Number} flushAt (default: 30)
  *   @property {Number} flushAfter (default: 10000)
  *   @property {String} host (default: 'http://localhost:8086')
- *   @property {String} series (default: 'http://localhost:8086')
- *   @property {String} columns (default: 'http://localhost:8086')
+ *   @property {String} series (default: 'series_<date>')
+ *   @property {String} dbName (default: 'db_<date>')
  * @license MIT
  */
 
 
-function Analytics(user, pass, opts){
-    if (!(this instanceof Analytics)) return new Analytics(user, pass, opts);
+function Abacus(user, pass, opts){
+    if (!(this instanceof Abacus)) return new Abacus(user, pass, opts);
+    opts = opts || {};
     this.user = user;
     this.pass = pass;
     this.host    = opts.host || "http://localhost:8086";
     this.flushAt = opts.flushAt || 30;
     this.flushAfter = opts.flushAfter || 10000;
-    this.dbName    = opts.dbName ||'';
-    this.series    = opts.series || ('sample_' + Date.now());
+    this.dbName    = opts.dbName || ('db_' + Date.now());
+    this.series    = opts.series || ('series_' + Date.now());
     this.columns   = [];
     this.queue     = [];
     debug('initialized %o ', this);
-} 
+};
 
 
 /**
  * Flush the current queue and callback `fn(err, batch)`.
  *
  * @param {Function} fn (optional)
- * @return {Analytics}
+ * @return {Abacus}
  */
 
 
-Analytics.prototype.flush = function(fn){
+Abacus.prototype.flush = function(fn){
     var self = this;
     fn = fn || noop;
     if(!this.queue.length) return setImmediate(fn);
@@ -93,7 +94,7 @@ Analytics.prototype.flush = function(fn){
  */
 
 
-Analytics.prototype.track = function(message, fn){
+Abacus.prototype.track = function(message, fn){
     var self = this;
     fn = fn || noop;
     message = clone(message);
