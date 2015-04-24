@@ -1,4 +1,4 @@
-var debug = require('debug')('abacus:init');
+var debug = require('debug')('analytics:init');
 var noop = function(){};
 var host = require('os').hostname();
 var clone = require('clone');
@@ -9,11 +9,11 @@ require('superagent-retry')(request);
 
 global.setImmediate = global.setImmediate || process.nextTick.bind(process);
 
-module.exports = Abacus;
+module.exports = Analytics;
 
 
 /**
- * Initialize a new `Abacus` with user, pass and and
+ * Initialize a new `Analytics` with user, pass and and
  * optional dictionary of `options` including host.
  *   Note: all messages being tracked will flatten all nested fields i.e. { top: { nested: 'hi' } } => { "top.nested" : "hi }
  *
@@ -29,8 +29,8 @@ module.exports = Abacus;
  */
 
 
-function Abacus(user, pass, opts){
-    if (!(this instanceof Abacus)) return new Abacus(user, pass, opts);
+function Analytics(user, pass, opts){
+    if (!(this instanceof Analytics)) return new Analytics(user, pass, opts);
     opts = opts || {};
     this.user = user;
     this.pass = pass;
@@ -49,11 +49,11 @@ function Abacus(user, pass, opts){
  * Flush the current queue and callback `fn(err, packet)`.
  *
  * @param {Function} fn (optional)
- * @return {Abacus}
+ * @return {Analytics}
  */
 
 
-Abacus.prototype.flush = function(fn){
+Analytics.prototype.flush = function(fn){
     var self = this;
     fn = fn || noop;
     if(!this.queue.length) return setImmediate(fn);
@@ -94,7 +94,7 @@ Abacus.prototype.flush = function(fn){
  */
 
 
-Abacus.prototype.track = function(message, fn){
+Analytics.prototype.track = function(message, fn){
     var self = this;
     fn = fn || noop;
     message = clone(message);

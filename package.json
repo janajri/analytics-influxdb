@@ -1,5 +1,5 @@
 {
-  "name": "abacus-influxdb",
+  "name": "analytics-influxdb",
   "version": "0.0.1",
   "description": "Simple analytics tracking for InfluxDB",
   "main": "index.js",

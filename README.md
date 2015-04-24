@@ -1,4 +1,4 @@
-# Abacus-InfluxDB
+# Analytics-InfluxDB
 > NOTE: work-in-progress
 
 Simple analytics logging for InfluxDB, heavily inspired by [analytics-node](https://github.com/segmentio/analytics-node)
@@ -8,20 +8,20 @@ Instantiate a new series queue to begin recording json data
 
 ###Install: 
   
-  - `npm install abacus-influxdb --save`
+  - `npm install analytics-influxdb --save`
 
 ###Usage:
 
 ``` javascript
 
-	var Abacus    = require('abacus-influxdb');
-	var analytics = new Abacus("foo", "bar", {
+	var Analytics = require('analytics-influxdb');
+	var Signups = new Analytics("foo", "bar", {
 			host: "http://inflxudb.mydomain.com:8086",
 			dbName: "production",
 			series: "signups"
 	});
 
-	var dataPt = {
+	var data = {
 		username: "greenbeans",
 		subscription: "1-month",
 		address: {
@@ -32,7 +32,7 @@ Instantiate a new series queue to begin recording json data
 		}
 	}
 
-	analytics.track(dataPt);
+	Signups.track(data);
 ```
 
 Displayed in influxDB as:
