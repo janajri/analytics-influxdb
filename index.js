@@ -46,7 +46,7 @@ function Abacus(user, pass, opts){
 
 
 /**
- * Flush the current queue and callback `fn(err, batch)`.
+ * Flush the current queue and callback `fn(err, packet)`.
  *
  * @param {Function} fn (optional)
  * @return {Abacus}
@@ -89,7 +89,7 @@ Abacus.prototype.flush = function(fn){
  * flushed.
  *
  * @param {Object} message fields
- * @param {Functino} fn (optional)
+ * @param {Function} fn (optional)
  * @api private
  */
 
