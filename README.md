@@ -1,5 +1,4 @@
 # Abacus-InfluxDB
-
 > NOTE: work-in-progress
 
 Simple analytics logging for InfluxDB, heavily inspired by [analytics-node](https://github.com/segmentio/analytics-node)
@@ -15,7 +14,7 @@ Instantiate a new series queue to begin recording json data
 
 ``` javascript
 
-	var Abacus 	   = require('abacus-influxdb');
+	var Abacus    = require('abacus-influxdb');
 	var analytics = new Abacus("foo", "bar", {
 			host: "http://inflxudb.mydomain.com:8086",
 			dbName: "production",
@@ -54,48 +53,27 @@ optional dictionary of `options` including host.
  - All messages being tracked will flatten all nested fields i.e. { top: { nested: 'hi' } } => { "top.nested" : "hi }
  - All messages append process's host, pid, and time upon tracking
 
-  **Parameters**
-
-    - username: `String`
-    - password: `String`
-    - options: `Object`, (optional)
+**Parameters**
+* username: `String`
+* password: `String`
+* options: `Object`, (optional)
 
 
 ### flush(fn) 
 
 Flush the current queue and callback `fn(err, batch)`.
 
-  **Parameters**
-
-    **fn**: `function`, (optional)
-
-    **Returns**: `Analytics`
-
+**Parameters**
+* fn: `function`, (optional)
 
 ### track(message, fn) 
 
 Add a `message` to the queue and check whether it should be
 flushed.
 
-  **Parameters**
-
-    **message**: `Object`, fields
-
-    **fn**: `Functino`, (optional)
-
-
-
-### error(res) 
-
-Get an error from a `res`.
-
-  **Parameters**
-
-    **res**: `Object`, Get an error from a `res`.
-
-    **Returns**: `String`
-
-
+**Parameters**
+* message: `Object`, fields
+* fn: `Function`, (optional)
 
 * * *
 
