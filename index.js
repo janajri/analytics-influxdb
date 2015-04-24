@@ -20,11 +20,11 @@ module.exports = Abacus;
  * @param {String} username
  * @param {String} password
  * @param {Object} options (optional)
- *   @property {Number} flushAt (default: 30)
- *   @property {Number} flushAfter (default: 10000)
- *   @property {String} host (default: 'http://localhost:8086')
- *   @property {String} series (default: 'series_<date>')
- *   @property {String} dbName (default: 'db_<date>')
+ * @property {Number} options.flushAt (default: 30)
+ * @property {Number} options.flushAfter (default: 10000)
+ * @property {String} options.host (default: 'http://localhost:8086')
+ * @property {String} options.series (default: 'series_<date>')
+ * @property {String} options.dbName (default: 'db_<date>')
  * @license MIT
  */
 
