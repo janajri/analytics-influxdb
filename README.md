@@ -1,5 +1,4 @@
 # Analytics-InfluxDB
-> NOTE: work-in-progress
 
 Simple analytics logging for InfluxDB, heavily inspired by [analytics-node](https://github.com/segmentio/analytics-node)
 
