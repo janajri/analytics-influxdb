@@ -1,4 +1,6 @@
-# Analytics-InfluxDB
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+# DEPRECATED Analytics-InfluxDB
 
 Simple analytics logging for InfluxDB, heavily inspired by [analytics-node](https://github.com/segmentio/analytics-node)
 
